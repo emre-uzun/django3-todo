@@ -1,0 +1,29 @@
+
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+
+
+<h1>signup</h1>
+
+    {% if user.is_authenticated %}
+
+        You are alredy login as <b>{{ user.username }}</b><br>
+        <a href="{% url 'home' %}">ANASAYFA</a>
+
+    {% else %}
+
+
+<h3>{{ error }}</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+<button type="submit">SIGN UP</button>
+</form>
+
+    {% endif %}
+
+
+{% endblock %}
